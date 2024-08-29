@@ -1,10 +1,10 @@
-<h1 align="center">
+<a href="https://www.ga4gh.org/"/>
+  <h1 align="center">
   Awesome GA4GH
-  <a href="https://www.ga4gh.org/"/>
-    <img width="10%" align="middle" src="https://github.com/user-attachments/assets/dae9d663-fa05-470a-a4dc-4ea88c68a2c2"/>
-  </a>
-</h1>
-
+  <img title="GA4GH Logo" width="10%" align="middle" src="https://github.com/user-attachments/assets/dae9d663-fa05-470a-a4dc-4ea88c68a2c2"/>
+  </h1>
+</a>
+  
 <div align="center">
   <a href="https://github.com/ohsu-comp-bio/idp-backups/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   ·
