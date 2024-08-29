@@ -1,6 +1,6 @@
 <h1 align="center">
-  <a href="https://www.ga4gh.org/"/>
   Awesome GA4GH
+  <a href="https://www.ga4gh.org/"/>
   <img title="GA4GH Logo" width="10%" align="middle" src="https://github.com/user-attachments/assets/dae9d663-fa05-470a-a4dc-4ea88c68a2c2"/>
   </a>
 </h1>
