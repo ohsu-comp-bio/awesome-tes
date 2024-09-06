@@ -1,11 +1,10 @@
 <h1 align="center">
-  Awesome GA4GH
+  Awesome GA4GH TES
   <a href="https://www.ga4gh.org/"/>
   <img title="GA4GH Logo" width="10%" align="middle" src="https://github.com/user-attachments/assets/dae9d663-fa05-470a-a4dc-4ea88c68a2c2"/>
   </a>
 </h1>
 
-  
 <div align="center">
   <a href="https://github.com/ohsu-comp-bio/idp-backups/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   ·
@@ -24,50 +23,265 @@
 <br />
 </div>
 
-## Table of Contents
-
 - [Overview](#overview)
-- [Core Standards](#core-standards)
-- [Projects and Tools](#projects-and-tools)
-- [Ecosystem](#ecosystem)
-- [Community](#community)
+- [TES Ecosystem](#tes-ecosystem)
+- [Design](#design)
+  - [Use Cases](#use-cases)
+  - [Architecture](#architecture)
+  - [Example TES Packet](#example-tes-packet)
+- [Additional Resources](#additional-resources)
 - [Contributing](#contributing)
 
-## Overview
+# Overview
 
 The Global Alliance for Genomics and Health (GA4GH) is an international coalition formed to enable the responsible, voluntary, and secure sharing of genomic and health-related data. This awesome list collects resources, projects, tools, and standards from the GA4GH ecosystem that support the mission of enabling responsible data sharing.
 
-## Core Standards
+https://arxiv.org/pdf/2405.00013
+ 
+The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution
 
-- **[GA4GH API Specifications](https://www.ga4gh.org/news/ga4gh-standards/)** - Key API standards such as the Data Repository Service (DRS), Workflow Execution Service (WES), and more.
-- **[Beacon API](https://beacon-project.io/)** - A web service that allows the search for specific genetic variants in datasets.
-- **[Phenopackets](https://phenopackets-schema.readthedocs.io/en/latest/)** - A standard for sharing phenotype data across institutions.
-- **[Refget](https://samtools.github.io/hts-specs/refget.html)** - A specification for accessing reference sequences using their checksums.
+# TES Ecosystem
 
-## Projects and Tools
+A listing of available servers, proxy and client implementations that utilize the TES API.
 
-- **[DRS: Data Repository Service](https://ga4gh.github.io/data-repository-service-schemas/)** - A standard API for accessing data in a distributed system of repositories.
-- **[WES: Workflow Execution Service](https://ga4gh.github.io/workflow-execution-service-schemas/)** - A standard for running and managing workflows on a compute service.
-- **[TES: Task Execution Service](https://ga4gh.github.io/task-execution-schemas/)** - Provides a standardized interface for executing a single task on a compute backend.
-- **[HTSGET: High-Throughput Sequencing Data Retrieval API](https://samtools.github.io/hts-specs/htsget.html)** - A protocol for streaming read data (BAM/CRAM) and variant data (VCF/BCF) over HTTP.
-- **[VRS: Variation Representation Specification](https://vr-spec.readthedocs.io/en/latest/)** - A standard for representing and exchanging data about genetic variation.
-- **[Phenopacket-tools](https://github.com/phenopackets/phenopacket-tools)** - A set of tools for working with the Phenopacket standard.
-- **[Schema Blocks](https://schemablocks.org/)** - A catalog of reusable JSON Schema blocks for creating interoperable data standards.
+| Type   | Project                 | Description                                                                                                                  | Source                                                            |
+|--------|-------------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| API    | TES                     | OpenAPI definition of the specification                                                                                      | [GitHub](https://github.com/ga4gh/task-execution-schemas)         |
+| API    | TES                     | Conformance test runner                                                                                                      | [GitHub](https://github.com/elixir-cloud-aai/openapi-test-runner) |
+| Server | Funnel                  | TES server implementation for HPC/HTS systems including AWS Batch, Google Cloud, Kubernetes, Slurm, GridEngine, and HTCondor | [GitHub](https://github.com/ohsu-comp-bio/funnel)                 |
+| Server | Pulsar                  | TES server implementation for the Galaxy/Pulsar federated distributed network                                                | [Docs](https://pulsar.readthedocs.io)                             |
+| Server | TES-Azure               | TES server implementation for Microsoft Azure                                                                                | [GitHub](https://github.com/microsoft/ga4gh-tes)                  |
+| Server | TESK                    | TES server implementation for Kubernetes/Native Cloud systems                                                                | [GitHub](https://github.com/elixir-cloud-aai/TESK)                |
+| Proxy  | proTES                  | Proxy service for injecting middleware into GA4GH TES requests                                                               | [GitHub](https://github.com/elixir-cloud-aai/proTES)              |
+| Client | Cromwell                | Workflow management system for executing composed workflows in the Workflow Definition Language (WDL) DSL                    | [Docs](https://cromwell.readthedocs.io)                           |
+| Client | cwl-tes                 | Workflow management system for executing workflows in the Common Workflow Language (CWL) DSL                                 | [GitHub](https://github.com/ohsu-comp-bio/cwl-tes)                |
+| Client | ELIXIR Cloud Components | Web Component library for interacting with TES services (and other GA4GH APIs)                                               | [Site](https://elixir-cloud-components.vercel.app)                |
+| Client | Nextflow                | Workflow management system for executing workflows composed in the Nextflow DSL                                              | [Site](https://nextflow.io)                                       |
+| Client | py-tes                  | Python client library for interacting with TES services                                                                      | [GitHub](https://github.com/ohsu-comp-bio/py-tes)                 |
+| Client | Snakemake               | Workflow management system for executing workflows composed in the Snakemake DSL                                             | [Site](https://snakemake.github.io)                               |
+| Client | Toil                    | Workflow management system for executing workflows composed in the Toil and CWL DSLs                                         | [Docs](https://toil.readthedocs.io)                               |
 
-## Ecosystem
+# Design
 
-- **[GA4GH Cloud](https://ga4gh.cloud/)** - A suite of standards and tools for federated cloud computing in genomics.
-- **[ELIXIR](https://elixir-europe.org/)** - A European research infrastructure for life science data.
-- **[AnVIL](https://anvilproject.org/)** - A cloud-based environment for large-scale analysis of genomic data.
-- **[The Beacon Network](https://beacon-network.org/)** - A search engine for finding genomic data across a network of Beacons.
+## Use Cases
 
-## Community
+<div align=center>
+  <img title="Common TES use cases" width="80%" src="https://github.com/user-attachments/assets/3219b125-cfcf-4204-995d-5452819168ee"/>
+</div>
 
-- **[GA4GH Membership](https://www.ga4gh.org/membership/)** - How to get involved in the GA4GH community.
-- **[GA4GH Working Groups](https://www.ga4gh.org/work_streams/)** - The different work streams and working groups within GA4GH.
-- **[GA4GH Connect](https://www.ga4gh.org/ga4gh-connect/)** - Annual events and updates from the GA4GH community.
-- **[Code of Conduct](https://www.ga4gh.org/code-of-conduct/)** - Guidelines for participating in the GA4GH community.
+Common TES use cases. The TES API wraps around compute environments providing a standard way of executing tasks.  Researchers can write and package their tasks and data in a domain-specific language (DSL) workflow language. They then hand the orchestration of the tasks over to the respective workflow management systems. The workflow management systems can then make use of TES clients to distribute tasks across different environments.
 
-## Contributing
+Alternatively, users can submit individual tasks to TES servers directly via command-line (CLI) or graphical user (GUI) interfaces. Thus, TES makes it easier for researchers to make use of a variety of compute environments seamlessly. Applications can support new compute environments by integrating with TES API, rather than develop unique connections for each environment. 
 
-We welcome contributions! Please see our [contribution guidelines](CONTRIBUTING.md) and check out our [issues](https://github.com/ohsu-comp-bio/awesome-ga4gh/issues) to get started. Whether it's fixing a bug, adding a new resource, or suggesting an improvement, we appreciate all contributions.
+## Architecture
+
+<div align=center>
+  <img title="TES Execution Architecture" width="80%" src="https://github.com/user-attachments/assets/3c99bba4-c1a8-4468-9c73-8b3c47e82891"/>
+</div>
+
+TES Execution Architecture. An outline of the separate layers found in current TES service implementations. The client talks to a server, which is responsible for allocating a worker node on an HPC/HTC or cloud infrastructure. The TES worker is responsible for transferring inputs, running user code, capturing logging and storing outputs. 
+
+## Example TES Packet
+
+An example TES task demonstrating the use of inputs, outputs, and logging.
+
+### Input/Output Defintions
+
+```json
+  "inputs": [
+    {
+      "name": "input-genome-data",
+      "url": "gs://genomics-bucket/input-data/genome-data.bam",
+      "path": "/data/genome-data.bam",
+      "type": "FILE"
+    },
+    {
+      "name": "reference-genome",
+      "url": "gs://genomics-bucket/reference/human-reference.fa",
+      "path": "/data/human-reference.fa",
+      "type": "FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output-processed-data",
+      "url": "gs://genomics-bucket/processed-data/processed-output.bam",
+      "path": "/output/processed-output.bam",
+      "type": "FILE"
+    },
+    {
+      "name": "log-file",
+      "url": "gs://genomics-bucket/logs/task-log.txt",
+      "path": "/output/task-log.txt",
+      "type": "FILE"
+    }
+  ],
+```
+
+
+### Resource Defintions
+
+```json
+  "resources": {
+    "cpu_cores": 8,
+    "ram_gb": 32,
+    "disk_gb": 100,
+    "preemptible": true,
+    "zones": ["us-west1-a", "us-west1-b"],
+    "backend_parameters": {
+      "VmSize": "Standard_D64_v3"
+    }
+  },
+  "volumes": ["/mnt/workdir"],
+```
+
+### Executor Command Lines
+
+```json
+  "executors": [
+    {
+      "image": "bioinformatics/pipeline",
+      "command": [
+        "bash",
+        "-c",
+        "/tools/process-genome.sh",
+        "/data/genome-data.bam",
+        "/data/human-reference.fa",
+        "/output/processed-output.bam"
+      ],
+      "stdout": "/output/task-log.txt",
+      "stderr": "/output/task-error-log.txt",
+      "workdir": "/mnt/workdir",
+      "env": {
+        "GENOME_ENV": "production",
+        "MAX_THREADS": "8"
+      }
+    }
+  ],
+```
+
+### User Provided Tags
+
+```json
+  "tags": {
+    "department": "bioinformatics",
+    "project": "genome-analysis"
+  },
+```
+
+
+### Logs Added by Server
+
+```json
+"logs": [
+    {
+      "start_time": "2023-12-25T00:00:00+00:00",
+      "end_time": "2023-12-25T12:12:12+00:00",
+      "logs": [
+        {
+          "start_time": "2023-12-25T00:00:01+00:00",
+          "end_time": "2023-12-25T12:12:12+00:00",
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+```
+
+<details><summary>Full Packet Example</summary>
+
+```json
+{
+  "inputs": [
+    {
+      "name": "input-genome-data",
+      "url": "gs://genomics-bucket/input-data/genome-data.bam",
+      "path": "/data/genome-data.bam",
+      "type": "FILE"
+    },
+    {
+      "name": "reference-genome",
+      "url": "gs://genomics-bucket/reference/human-reference.fa",
+      "path": "/data/human-reference.fa",
+      "type": "FILE"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output-processed-data",
+      "url": "gs://genomics-bucket/processed-data/processed-output.bam",
+      "path": "/output/processed-output.bam",
+      "type": "FILE"
+    },
+    {
+      "name": "log-file",
+      "url": "gs://genomics-bucket/logs/task-log.txt",
+      "path": "/output/task-log.txt",
+      "type": "FILE"
+    }
+  ],
+  "resources": {
+    "cpu_cores": 8,
+    "ram_gb": 32,
+    "disk_gb": 100,
+    "preemptible": true,
+    "zones": ["us-west1-a", "us-west1-b"],
+    "backend_parameters": {
+      "VmSize": "Standard_D64_v3"
+    }
+  },
+  "volumes": ["/mnt/workdir"],
+  "executors": [
+    {
+      "image": "bioinformatics/pipeline",
+      "command": [
+        "bash",
+        "-c",
+        "/tools/process-genome.sh",
+        "/data/genome-data.bam",
+        "/data/human-reference.fa",
+        "/output/processed-output.bam"
+      ],
+      "stdout": "/output/task-log.txt",
+      "stderr": "/output/task-error-log.txt",
+      "workdir": "/mnt/workdir",
+      "env": {
+        "GENOME_ENV": "production",
+        "MAX_THREADS": "8"
+      }
+    }
+  ],
+  "tags": {
+    "department": "bioinformatics",
+    "project": "genome-analysis"
+  },
+  "logs": [
+    {
+      "start_time": "2023-12-25T00:00:00+00:00",
+      "end_time": "2023-12-25T12:12:12+00:00",
+      "logs": [
+        {
+          "start_time": "2023-12-25T00:00:01+00:00",
+          "end_time": "2023-12-25T12:12:12+00:00",
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+</details> 
+
+# Additional Resources
+
+- [GA4GH](https://www.ga4gh.org): Global Alliance for Genomics and Health
+- [DRS](https://www.ga4gh.org/product/data-repository-service-drs/): Data Repository Service
+- [TRS](https://www.ga4gh.org/product/tool-registry-service-trs/): Tool Registry Service
+- [TES](https://www.ga4gh.org/product/task-execution-service-tes/): Task Execution Service
+- [WES](https://www.ga4gh.org/product/workflow-execution-service-wes/): Workflow Execution Service
+- [Implementations](https://www.ga4gh.org/our-products/implementations/#): Implementations of GA4GH Producs
+
+# Contributing
+
+If you're working with TES or would like to add any additional programs here, please reach out or create a new PR or issue. We'd love to hear about it!
