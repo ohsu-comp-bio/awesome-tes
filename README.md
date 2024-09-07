@@ -36,9 +36,7 @@
 
 The Global Alliance for Genomics and Health (GA4GH) is an international coalition formed to enable the responsible, voluntary, and secure sharing of genomic and health-related data. This awesome list collects resources, projects, tools, and standards from the GA4GH ecosystem that support the mission of enabling responsible data sharing.
 
-https://arxiv.org/pdf/2405.00013
- 
-The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution
+The following resources are adapted from [The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution](https://arxiv.org/pdf/2405.00013):
 
 # TES Ecosystem
 
