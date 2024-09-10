@@ -299,5 +299,5 @@ If you're working with TES or would like to add any additional programs here, pl
 
 ---
 
-Repo Template by @dec0dOS
+Thanks to [@dec0dOS](https://github.com/dec0dOS) for the [amazing-github-template](https://github.com/dec0dOS/amazing-github-template)!
 > https://github.com/dec0dOS/amazing-github-template
