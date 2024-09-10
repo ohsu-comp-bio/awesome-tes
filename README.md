@@ -1,4 +1,4 @@
-<h1 align="center">
+G<h1 align="center">
   Awesome GA4GH TES
   <a href="https://www.ga4gh.org/"/>
   <img title="GA4GH Logo" width="10%" align="middle" src="https://github.com/user-attachments/assets/dae9d663-fa05-470a-a4dc-4ea88c68a2c2"/>
@@ -299,5 +299,5 @@ If you're working with TES or would like to add any additional programs here, pl
 
 ---
 
-Thanks to [@dec0dOS](https://github.com/dec0dOS) for the [amazing-github-template](https://github.com/dec0dOS/amazing-github-template)
+Thanks to [@dec0dOS](https://github.com/dec0dOS) for the [amazing-github-template](https://github.com/dec0dOS/amazing-github-template) ⚡
 > https://github.com/dec0dOS/amazing-github-template
