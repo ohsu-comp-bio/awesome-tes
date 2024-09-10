@@ -23,22 +23,25 @@
 <br />
 </div>
 
-- [Overview](#overview)
-- [TES Ecosystem](#tes-ecosystem)
+- [Overview 🧬](#overview-)
+  - [Paper 📚](#paper-)
+- [TES Ecosystem 🌱](#tes-ecosystem-)
 - [Design](#design)
-  - [Use Cases](#use-cases)
-  - [Architecture](#architecture)
-  - [Example TES Packet](#example-tes-packet)
-- [Additional Resources](#additional-resources)
-- [Contributing](#contributing)
+  - [Use Cases 🧑‍🔬](#use-cases-)
+  - [Architecture 🛠](#architecture-)
+  - [Example TES Packet ⚡](#example-tes-packet-)
+- [Additional Resources 📚](#additional-resources-)
+- [Contributing 🤝](#contributing-)
 
-# Overview
+# Overview 🧬
 
 The Global Alliance for Genomics and Health (GA4GH) is an international coalition formed to enable the responsible, voluntary, and secure sharing of genomic and health-related data. This awesome list collects resources, projects, tools, and standards from the GA4GH ecosystem that support the mission of enabling responsible data sharing.
 
+## Paper 📚
+
 The following resources are adapted from [The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution](https://arxiv.org/pdf/2405.00013)
 
-# TES Ecosystem
+# TES Ecosystem 🌱
 
 A listing of available servers, proxy and client implementations that utilize the TES API.
 
@@ -61,7 +64,7 @@ A listing of available servers, proxy and client implementations that utilize th
 
 # Design
 
-## Use Cases
+## Use Cases 🧑‍🔬
 
 <div align=center>
   <img title="Common TES use cases" width="80%" src="https://github.com/user-attachments/assets/3219b125-cfcf-4204-995d-5452819168ee"/>
@@ -71,7 +74,7 @@ Common TES use cases. The TES API wraps around compute environments providing a 
 
 Alternatively, users can submit individual tasks to TES servers directly via command-line (CLI) or graphical user (GUI) interfaces. Thus, TES makes it easier for researchers to make use of a variety of compute environments seamlessly. Applications can support new compute environments by integrating with TES API, rather than develop unique connections for each environment. 
 
-## Architecture
+## Architecture 🛠
 
 <div align=center>
   <img title="TES Execution Architecture" width="80%" src="https://github.com/user-attachments/assets/3c99bba4-c1a8-4468-9c73-8b3c47e82891"/>
@@ -79,7 +82,7 @@ Alternatively, users can submit individual tasks to TES servers directly via com
 
 TES Execution Architecture. An outline of the separate layers found in current TES service implementations. The client talks to a server, which is responsible for allocating a worker node on an HPC/HTC or cloud infrastructure. The TES worker is responsible for transferring inputs, running user code, capturing logging and storing outputs. 
 
-## Example TES Packet
+## Example TES Packet ⚡
 
 An example TES task demonstrating the use of inputs, outputs, and logging.
 
@@ -271,7 +274,7 @@ An example TES task demonstrating the use of inputs, outputs, and logging.
 
 </details> 
 
-# Additional Resources
+# Additional Resources 📚
 
 - [GA4GH](https://www.ga4gh.org): Global Alliance for Genomics and Health
 - [DRS](https://www.ga4gh.org/product/data-repository-service-drs/): Data Repository Service
@@ -280,6 +283,6 @@ An example TES task demonstrating the use of inputs, outputs, and logging.
 - [WES](https://www.ga4gh.org/product/workflow-execution-service-wes/): Workflow Execution Service
 - [Implementations](https://www.ga4gh.org/our-products/implementations/#): Implementations of GA4GH Producs
 
-# Contributing
+# Contributing 🤝
 
 If you're working with TES or would like to add any additional programs here, please reach out or create a new PR or issue. We'd love to hear about it!
