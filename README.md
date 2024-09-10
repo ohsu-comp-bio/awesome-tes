@@ -296,3 +296,8 @@ An example TES task demonstrating the use of inputs, outputs, and logging.
 # Contributing
 
 If you're working with TES or would like to add any additional programs here, please reach out or create a new PR or issue. We'd love to hear about it!
+
+---
+
+Repo Template by @dec0dOS
+> https://github.com/dec0dOS/amazing-github-template
