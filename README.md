@@ -6,11 +6,11 @@
 </h1>
 
 <div align="center">
-  <a href="https://github.com/ohsu-comp-bio/idp-backups/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  <a href="https://github.com/ohsu-comp-bio/awesome-tes/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   ·
-  <a href="https://github.com/ohsu-comp-bio/idp-backups/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/ohsu-comp-bio/awesome-tes/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   ·
-  <a href="https://github.com/ohsu-comp-bio/idp-backups/discussions">Ask a Question</a>
+  <a href="https://github.com/ohsu-comp-bio/awesome-tes/discussions">Ask a Question</a>
 </div>
 
 <div align="center">
