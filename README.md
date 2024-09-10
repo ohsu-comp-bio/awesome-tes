@@ -41,6 +41,16 @@ The Global Alliance for Genomics and Health (GA4GH) is an international coalitio
 
 The following resources are adapted from [The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution](https://arxiv.org/pdf/2405.00013)
 
+```latex
+@article{kanitz2024ga4gh,
+  title={The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution},
+  author={Kanitz, Alexander and McLoughlin, Matthew H and Beckman, Liam and Malladi, Venkat S and Ellrott, Kyle},
+  journal={Computing in Science \& Engineering},
+  year={2024},
+  publisher={IEEE}
+}
+```
+
 # TES Ecosystem 🌱
 
 A listing of available servers, proxy and client implementations that utilize the TES API.
