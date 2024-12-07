@@ -39,7 +39,7 @@ The Global Alliance for Genomics and Health (GA4GH) is an international coalitio
 
 ## Paper
 
-The following resources are adapted from [The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution](https://arxiv.org/pdf/2405.00013)
+The following resources are adapted from [The GA4GH Task Execution API: Enabling Easy Multi Cloud Task Execution](https://ieeexplore.ieee.org/document/10564576)
 
 ```latex
 @article{kanitz2024ga4gh,
